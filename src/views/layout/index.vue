@@ -20,14 +20,26 @@
     </el-header>
     <el-container>
       <el-aside width="200px">Aside</el-aside>
-      <el-main>Main</el-main>
+      <!-- 地图区域 -->
+      <el-main>
+<mapview></mapview>
+      </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
+import mapview from '@/components/mapview/index.vue'
 export default {
-  name: 'webgis-layout'
+  name: 'webgis-layout',
+  components: {
+    mapview
+  },
+  methods: {
+    logoutFn () {
+
+    }
+  }
 }
 </script>
 
