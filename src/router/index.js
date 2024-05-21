@@ -5,7 +5,17 @@ Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
-  component: () => import('@/views/layout')
+  component: () => import('@/views/layout'),
+  redirect: '/home', // 默认显示首页的二级路由
+  children: [
+    {
+      path: 'home',
+      component: () => import('@/views/DataVisual')
+    },
+    {
+      path: '/onemap',
+      component: () => import('@/views/OneMap')
+    }]
 },
 {
   path: '/reg',

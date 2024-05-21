@@ -27,8 +27,8 @@ export default {
       mapView = new MapView({ // MapView为二维，SceneView为三维
         container: 'mapView',
         map: map,
-        zoom: 14, // 缩放值
-        center: [116.397128, 39.916527] // 经度, 纬度
+        zoom: 12, // 缩放值
+        center: [121.48941, 31] // 经度, 纬度
       })
       mapView.ui.move('zoom', 'bottom-right') // 添加缩放控件
     }
