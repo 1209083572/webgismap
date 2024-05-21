@@ -1,16 +1,7 @@
 <template>
-  <div id="app">
-<span>sssss</span>
-  </div>
+  <router-view></router-view>
 </template>
 
-<style lang="less">
-#app {
-position: relative;
-width: 100%;
-height: 100%;
-margin: 0;
-
-}
+<style lang="less" scoped>
 
 </style>
