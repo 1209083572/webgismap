@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "npm run copy && vue-cli-service serve",
+    "build": "npm run copy && vue-cli-service build",
+    "copy": "ncp ./node_modules/@arcgis/core/assets ./public/assets"
   },
   "dependencies": {
+    "@arcgis/core": "^4.29.10",
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
     "esri-loader": "^3.7.0",
+    "ncp": "^2.0.0",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"

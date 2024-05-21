@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import '@/assets/global.less'
 import '@/elementUI/index'
+import esriConfig from '@arcgis/core/config.js'
+esriConfig.assetsPath = './assets'
 Vue.config.productionTip = false
 
 new Vue({

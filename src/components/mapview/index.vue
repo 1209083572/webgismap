@@ -1,41 +1,46 @@
 <template>
-<div class="mapview"></div>
+
+<div id="mapView" class="mapView"></div>
+
 </template>
 
 <script>
-import { loadModules } from 'esri-loader'
-const options = {
-  url: 'https://js.arcgis.com/4.20/init.js',
-  css: 'https://js.arcgis.com/4.20/esri/themes/light/main.css'
-}
+import Map from '@arcgis/core/Map'
+import MapView from '@arcgis/core/views/MapView'
+import '@arcgis/core/assets/esri/themes/light/main.css'
+let map
+let mapView
 export default {
   name: 'my-mapview',
-  mounted () {
-    this.createMapView()
+  data () {
+    return {}
   },
+  mounted () {
+    this.initMap()
+  },
+  destroyed () {},
   methods: {
-    async createMapView () {
-      const [Map, MapView] = await loadModules(['esri/Map', 'esri/views/MapView'], options)
-      const map = new Map({
-        basemap: 'osm'
+    initMap () {
+      map = new Map({
+        basemap: 'topo-vector'// 底图
       })
-      const view = new MapView({
-        container: 'mapview',
+      mapView = new MapView({ // MapView为二维，SceneView为三维
+        container: 'mapView',
         map: map,
-        zoom: 10,
-        center: [104.072745, 30.663774]
+        zoom: 14, // 缩放值
+        center: [116.397128, 39.916527] // 经度, 纬度
       })
-      view.ui.components = []
-      console.log(view)
+      mapView.ui.move('zoom', 'bottom-right') // 添加缩放控件
     }
   }
+
 }
 </script>
 
 <style>
-.mapview {
+.mapView {
+width: 100%;
+height: 100%;
 
-    width: 100px;
-    height: 100px;
 }
 </style>
